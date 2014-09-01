@@ -78,6 +78,7 @@ This is were you do the slave configuration part. Here we choose a "start with f
 * The image ID is a default Centos image 6.5 (PVHVM for better IO)
 * Then all the provisionning is done with chef to get a usable server (Init script)
 
+Init script:
 
     curl -L https://www.opscode.com/chef/install.sh | bash
     yum install -y git
