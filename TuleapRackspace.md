@@ -27,7 +27,7 @@ Continuous integration, the tricky part
 ---------------------------------------
 
 But what's awesome with cloud servers is that you can create yourself a ton of
-new problems you would never imagine with a bare metal servers. This is what we
+new problems you would never imagine with a bare metal server. This is what we
 have done for our continuous integration.
 
 [Yannis already wrote about our CI](http://www.tuleap.org/tuleap-continuous-integration-infrastructure) so
@@ -53,8 +53,8 @@ We don't want to waste Rackspace gift so we configured our CI with:
 * Jenkins master is just a thin instance (Performance-1... you know, Java stuff) running
   24/7.
 * Build slaves are spawned "just in time" when a commit occurs, the slave last for
-  30mn if there is nothing to build and is destroyed. If another job need the slave,
-  it's reused. Here we use Performance1-4 for better IO throughput
+  30mn if there is nothing to build and is destroyed. If another job needs the slave,
+  it's reused. Here we use Performance1-4 for better IO throughput.
 
 Just in time slaves with JClouds
 --------------------------------
@@ -67,9 +67,9 @@ and select the kind of images you want to spawn and the hardware you wish.
 
 The magic is done in slave configuration:
 
-* Number of Executors: the number of job a slave can handle in parallel (we set to 5)
+* Number of Executors: the number of jobs a slave can handle in parallel (we set to 5)
 * The hardware ID (performance1-4 in our case)
-* The image ID and setup script, this need some details
+* The image ID and setup script, this needs some details
 
 ### Image ID and Init script
 
@@ -88,7 +88,7 @@ Init script:
     chef-solo -c solo.rb -j node.json
 
 And that's all.
-It means that, when a job need a slave (and there is none available), JCloud will
+It means that, when a job needs a slave (and there is none available), JCloud will
 create a new Rackspace server with fresh Centos install. Then we customize it for
 our needs with our [Chef recipes](https://github.com/vaceletm/tuleapci-chef-cookbook).
 
@@ -101,7 +101,7 @@ Future
 ------
 
 We are already extremely grateful to Rackspace. The offer is amazing and the support
-teams are really awesome. The few time we had issues (when you spawn ~10/20 servers
+teams are really awesome. The few times we had issues (when you spawn ~10/20 servers
 a day you are likely to hit problems at some stage) we got answers of what was going
 on within minutes. I don't remember spending more than 15mn on chat without having
 an explanation about what's going on and a solution.
